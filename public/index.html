@@ -7,9 +7,10 @@
 <body ng-controller="MainCtrl as vm">
 
 
-<h1>Login</h1>
 
-<div>
+
+<div ng-hide="vm.user">
+	<h1>Login</h1>
 	<form ng-submit="vm.login(vm.username, vm.password)">
 		<label>Username: <input type="text" ng-model="vm.username"></label><br>
 		<label>Password: <input type="password" ng-model="vm.password"></label><br>
@@ -17,7 +18,7 @@
 	</form>
 </div>
 
-<div>
+<div ng-show="vm.user">
 	<h2>Welcome {{vm.user.username}}</h2>
 	<button ng-click="vm.logout()">Logout</button><br>
 	<button ng-click="vm.getRandomUser()">Get User</button>
